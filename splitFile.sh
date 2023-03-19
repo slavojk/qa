@@ -11,8 +11,8 @@ for file in $(ls xx*); do
   fi
 done
 
-csplit -f shum vlhkomer /.hum./
-csplit -f therm teplomer /.temp./
+csplit -f shum vlhkomer /hum/ {*} && rm shum00
+csplit -f therm teplomer /temp/ {*} && rm therm00
 
 for tfile in $(ls therm*); do
  thermometer=$(awk '/temp/ {print $2}' $tfile)
