@@ -1,0 +1,4 @@
+
+image:
+  repository: sk0003/skqa
+  pullPolicy: IfNotPresent
