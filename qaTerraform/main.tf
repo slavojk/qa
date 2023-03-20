@@ -17,28 +17,50 @@ resource "kubernetes_namespace" "qa" {
   }
 }
 
-resource "kubernetes_job" "qa" {
+resource "kubernetes_deployment" "qa" {
   metadata {
     name = var.appName
     namespace = var.ns
+    labels = {
+      App = var.appName
+    }
   }
+
   spec {
-    template {
-      metadata {}
-      spec {
-        container {
-          name    = var.appName
-          image   = var.image
-        }
-        restart_policy = "Never"
+    replicas = 1
+    selector {
+      match_labels = {
+        App = var.appName
       }
     }
-    backoff_limit = 4
-  }
-  wait_for_completion = true
-  timeouts {
-    create = "2m"
-    update = "2m"
+    template {
+      metadata {
+        labels = {
+          App = var.appName
+        }
+      }
+      spec {
+        container {
+          image = var.image
+          name  = var.appName
+
+          port {
+            container_port = 80
+          }
+
+          resources {
+            limits = {
+              cpu    = "0.5"
+              memory = "512Mi"
+            }
+            requests = {
+              cpu    = "250m"
+              memory = "50Mi"
+            }
+          }
+        }
+      }
+    }
   }
 }
 
