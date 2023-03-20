@@ -8,7 +8,7 @@ Is easy bash script which analyses data, put them to output file and prints the 
 
 ### Deployment
 Deployment of code is focused to deploy solution to k8s and consist of  
-- creation of [docekr image](Dockerfile) to encapsulate the doce
+- creation of [docekr image](Dockerfile) to encapsulate the code into the docker image
 - [helm chart](qaHelm) solution of deployment
 - [terraform code](qaTerraform) to deploy the solution to k8
 
