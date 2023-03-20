@@ -14,11 +14,11 @@ Deployment of code is focused to deploy solution to k8s and consist of
 
 #### Output example
 `
-	$ kubectl logs qa-helm-pod
-	{
-	"temp-1": "precise"
-	"temp-2": "ultra precise"
-	"hum-1": "keep"
-	"hum-2": "discard"
-	}
+	$ kubectl logs qa-helm-pod  
+	{  
+	"temp-1": "precise"  
+	"temp-2": "ultra precise"  
+	"hum-1": "keep"  
+	"hum-2": "discard"  
+	}  
 `
