@@ -13,7 +13,7 @@ Deployment of code is focused to deploy solution to k8s and consist of
 - [terraform code](qaTerraform) to deploy the solution to k8
 
 #### Output example
-`
+```
 	$ kubectl logs qa-helm-pod  
 	{  
 	"temp-1": "precise"  
@@ -21,4 +21,4 @@ Deployment of code is focused to deploy solution to k8s and consist of
 	"hum-1": "keep"  
 	"hum-2": "discard"  
 	}  
-`
+```
